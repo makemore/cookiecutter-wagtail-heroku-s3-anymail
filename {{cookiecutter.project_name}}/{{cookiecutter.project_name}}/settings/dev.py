@@ -17,7 +17,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '{{cookiecutter.s3_static_bucket_name}}',
+        'NAME': '{{cookiecutter.project_name}}',
         'USER': 'chris',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

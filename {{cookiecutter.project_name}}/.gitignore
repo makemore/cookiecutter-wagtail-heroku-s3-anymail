@@ -2,9 +2,8 @@
 .DS_Store
 *.swp
 /venv/
-.env
+{%raw%}.env{%endraw%}
 .idea/
 env_{{cookiecutter.project_name}}/
 /static/
 /media/
-.env

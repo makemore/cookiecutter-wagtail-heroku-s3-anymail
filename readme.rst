@@ -48,6 +48,13 @@ Get sendgrid
 
 run cookiecutter in your projects folder
 
+add info as requested
+
+init git
+push to github
+heroku git:remote -a demo-cookie
+heroku plugins:install git://github.com/ddollar/heroku-config.git
+heroku config:push
 
 
 S3 help

@@ -11,8 +11,8 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '{{cookiecutter.s3_static_bucket_name}}',
-        'USER': '{{cookiecutter.s3_static_bucket_name}}',
+        'NAME': '{{cookiecutter.project_name}}',
+        'USER': '{{cookiecutter.project_name}}',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
