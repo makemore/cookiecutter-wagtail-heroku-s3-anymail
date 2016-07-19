@@ -1,0 +1,10 @@
+*.pyc
+.DS_Store
+*.swp
+/venv/
+.env
+.idea/
+env_{{cookiecutter.project_name}}/
+/static/
+/media/
+.env
