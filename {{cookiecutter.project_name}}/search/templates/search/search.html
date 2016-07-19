@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{%raw%}{% extends "base.html" %}
 {% load static wagtailcore_tags %}
 
 {% block body_class %}template-searchresults{% endblock %}
@@ -35,4 +35,4 @@
     {% elif search_query %}
         No results found
     {% endif %}
-{% endblock %}
+{% endblock %}{% endraw %}
