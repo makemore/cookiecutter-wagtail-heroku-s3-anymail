@@ -1,6 +1,7 @@
 {
   "project_name": "project_name is the title of the project.",
   "secret_key": "the secret key of the project. Use generate_secret_key",
+  "s3_bucket_name": "the name of the bucket you are going to use",
   "aws_access_key_id": "as is",
   "aws_secret_access_key": "as is",
   "sendgrid_api_key": "as is"
