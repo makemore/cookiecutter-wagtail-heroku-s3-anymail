@@ -56,6 +56,9 @@ add info as requested
 - heroku plugins:install git://github.com/ddollar/heroku-config.git
 - heroku config:push
 - git push heroku master
+- heroku run python manage.py migrate
+- heroku run python manage.py createsuperuser
+- heroku ps:scale web=1
 
 S3 help
 --------
