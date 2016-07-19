@@ -25,7 +25,13 @@ requirements before running
 
 - created heroku app name
 
+I think this command binds a folder to an app, so you might find it easier to create the app in the web interface.
+
 heroku apps:create {{cookiecutter.project_name}} --region eu
+
+or after creating the app remotely
+
+heroku git:remote -a demo-cookie
 
 - created s3 bucket name
 
@@ -37,4 +43,57 @@ This will give you a unique:
 
 - sengrid api key with send mail support
 
-Get sendgrid 
+Get sendgrid
+
+
+run cookiecutter in your projects folder
+
+
+
+S3 help
+--------
+
+
+bucket policy
+
+THE USERS ARN IS LONG KEY LIKE STRING WHICH IDENTIFIES THEM.
+
+{
+	"Version": "2008-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicReadForGetBucketObjects",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "*"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::demo-cookie/*"
+		},
+		{
+			"Sid": "",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "{{ PUT THE USERS ARN HERE }}"
+			},
+			"Action": "s3:*",
+			"Resource": [
+				"arn:aws:s3:::demo-cookie/*",
+				"arn:aws:s3:::demo-cookie"
+			]
+		}
+	]
+}
+
+
+Change allowed header to *, but restrict origin to what you want when in production
+
+
+<CORSConfiguration>
+    <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
