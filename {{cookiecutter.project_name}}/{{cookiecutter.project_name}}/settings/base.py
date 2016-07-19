@@ -20,7 +20,6 @@ from dotenv import load_dotenv
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(".env")
 
@@ -56,7 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    "anymail"
+    "anymail",
+    "compressor",
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -96,10 +96,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = '{{cookiecutter.project_name}}.wsgi.application'
 
-
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -113,17 +109,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 ]
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
+    os.path.join(BASE_DIR, 'bower_components'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -132,13 +129,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
 EMAIL_BACKEND = "anymail.backends.sendgrid.SendGridBackend"
 
 ANYMAIL = {
     "SENDGRID_API_KEY": os.environ.get("SENDGRID_API_KEY"),
 }
-
 
 # Wagtail settings
 
@@ -147,3 +142,8 @@ WAGTAIL_SITE_NAME = "{{cookiecutter.project_name}}"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+

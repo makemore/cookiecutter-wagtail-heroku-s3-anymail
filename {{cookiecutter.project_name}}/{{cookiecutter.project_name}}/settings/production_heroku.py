@@ -49,6 +49,12 @@ BASIC_WWW_AUTHENTICATION_USERNAME = "{{cookiecutter.project_name}}"
 BASIC_WWW_AUTHENTICATION_PASSWORD = "{{cookiecutter.project_name}}123"
 BASIC_WWW_AUTHENTICATION = True
 
+COMPRESS_STORAGE = STATICFILES_STORAGE
+COMPRESS_URL = STATIC_URL
+COMPRESS_ROOT = STATIC_ROOT
+
+COMPRESS_OFFLINE = True
+
 try:
     from .local import *
 except ImportError:

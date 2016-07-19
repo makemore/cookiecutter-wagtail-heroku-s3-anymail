@@ -7,6 +7,9 @@ dj-database-url==0.4.1
 dj-static==0.0.6
 Django==1.9.7
 django-anymail==0.4.2
+django-appconf==1.0.2
+django-compressor==2.0
+django-libsass==0.7
 django-modelcluster==2.0
 django-storages==1.4.1
 django-taggit==0.18.3
@@ -17,13 +20,16 @@ docutils==0.12
 gunicorn==19.6.0
 html5lib==0.9999999
 jmespath==0.9.0
+libsass==0.11.1
 ordereddict==1.1
 Pillow==3.3.0
 psycopg2==2.6.2
 python-dateutil==2.5.3
 python-dotenv==0.5.1
 pytz==2016.6.1
+rcssmin==1.0.6
 requests==2.10.0
+rjsmin==1.0.12
 six==1.10.0
 static3==0.7.0
 Unidecode==0.4.19

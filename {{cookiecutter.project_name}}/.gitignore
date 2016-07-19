@@ -7,3 +7,4 @@
 env_{{cookiecutter.project_name}}/
 /static/
 /media/
+bower_components/
