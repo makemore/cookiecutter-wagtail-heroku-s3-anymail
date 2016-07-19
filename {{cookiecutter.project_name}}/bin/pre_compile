@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+# The post_compile hook is run by heroku-buildpack-python
+
+echo "-----> I'm pre-compile hook"
+
+if [ -f bin/run_bower_install ]; then
+    echo "-----> Running run_bower_install"
+    chmod +x bin/run_bower_install
+    bin/run_bower_install
+fi
+
+echo "-----> Pre-compile done"

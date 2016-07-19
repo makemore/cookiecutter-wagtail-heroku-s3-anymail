@@ -59,6 +59,24 @@ add info as requested
 - heroku run python manage.py migrate
 - heroku run python manage.py createsuperuser
 - heroku ps:scale web=1
+- heroku plugins:install git://github.com/ddollar/heroku-config.git
+- heroku config:push
+
+- heroku buildpacks:add --index 1 heroku/nodejs
+
+
+TODO
+-----
+
+-Currently, as we are using the standard python buildpack, as well as the normal node js one, this means that collect static runs twice.
+-Once at the end of the normal compile step, which means it hasn't seen the output of manage.py compress
+-And again, after the compress step.
+
+This is obviously ineffecient.
+
+- Potentially the best thing to do would be to add install node js steps into the bin folder, as well as bower
+- Also would have to create a varient of the python heroku buildpack, that runs compress before collectstatic
+
 
 S3 help
 --------
