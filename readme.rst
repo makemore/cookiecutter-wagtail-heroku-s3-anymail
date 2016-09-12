@@ -55,6 +55,8 @@ add info as requested
 - heroku git:remote -a demo-cookie
 - heroku plugins:install git://github.com/ddollar/heroku-config.git
 - heroku config:push
+- heroku buildpacks:add --index 1 heroku/nodejs
+- heroku buildpacks:add --index 2 heroku/python
 - git push heroku master
 - heroku run python manage.py migrate
 - heroku run python manage.py createsuperuser
@@ -62,7 +64,7 @@ add info as requested
 - heroku plugins:install git://github.com/ddollar/heroku-config.git
 - heroku config:push
 
-- heroku buildpacks:add --index 1 heroku/nodejs
+
 
 
 TODO
