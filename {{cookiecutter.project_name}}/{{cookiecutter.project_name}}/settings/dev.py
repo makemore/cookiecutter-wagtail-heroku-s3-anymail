@@ -32,7 +32,7 @@ ENABLE_DEV_S3 = True
 if ENABLE_DEV_S3:
     INSTALLED_APPS.insert(0, 'collectfast')
 
-    AWS_STORAGE_BUCKET_NAME = 'lolc'
+    AWS_STORAGE_BUCKET_NAME = '{{cookiecutter.project_name}}'
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     STATIC_ROOT = 'static'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_ROOT)
@@ -51,8 +51,8 @@ if ENABLE_DEV_S3:
     STATICFILES_LOCATION = "static"
     MEDIAFILES_LOCATION = "media"
 
-    STATICFILES_STORAGE = 'lolc.custom_storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'lolc.custom_storages.MediaStorage'
+    STATICFILES_STORAGE = '{{cookiecutter.project_name}}.custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = '{{cookiecutter.project_name}}.custom_storages.MediaStorage'
 
 
     AWS_PRELOAD_METADATA = True
